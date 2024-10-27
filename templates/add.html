@@ -1,0 +1,10 @@
+{% from "_formhelper.html" import render_field %}
+<form method=post>
+  Was soll eingekauft werden?
+  <dl>
+    {{ render_field(form.item) }}
+    {{ render_field(form.shop) }}
+    {{ render_field(form.comment) }}
+  </dl>
+  <p><input type=submit value=Save>
+</form>

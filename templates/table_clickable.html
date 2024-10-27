@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <h1>Einkaufsliste der Herzen </h1>
+</header>
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Was?</th>
+        <th>Wo?</th>
+        <th>Kommentar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entry in data %}
+        <tr>
+            <td>
+              <form action="{{ url_for('remove_single_item') }}" method="POST">
+                <input id="entry" name="entry" type="hidden" value="{{entry}}">
+                <button type="submit"> {{entry.item}} </button>
+              </form>
+            <td>       
+              <form action="{{ url_for('remove_all_from_shop') }}" method="POST">
+                <input id="shop" name="shop" type="hidden" value="{{entry.shop}}">
+                <button type="submit"> {{entry.shop}} </button>
+              </form>
+            </td>
+            <td>
+              {{entry.comment}}
+            </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a class='btn btn-primary' href="{{url_for('add_entry')}}"  role="button">Etwas zur Liste hinzufügen</a>
+
+{% endblock %}

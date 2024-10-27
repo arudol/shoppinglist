@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <h1>Einkaufsliste der Herzen </h1>
+</header>
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Was?</th>
+        <th>Wo?</th>
+        <th>Kommentar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entry in data %}
+        <tr>
+          <td>{{ entry.item }}</td>
+          <td>{{ entry.shop }}</td>
+          <td>{{ entry.comment }}</td> 
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a class='btn btn-primary' href="{{url_for('add_entry')}}"  role="button">Hinzufügen</a>
+
+  <a class='btn btn-primary' href="{{url_for('remove_get')}}"  role="button">Löschen</a>
+
+
+{% endblock %}
