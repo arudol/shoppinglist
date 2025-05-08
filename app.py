@@ -3,6 +3,8 @@ from pymongo import MongoClient
 import os
 from forms import InputForm, RemoveForm
 import ast
+import argparse
+
 app = Flask(__name__)
 
 #Set up MongoDB client. 
@@ -79,5 +81,16 @@ def remove_get():
 
 
 
+
+
 if __name__ == "__main__": 
+    parser = argparse.ArgumentParser(
+                        prog='ProgramName',
+                        description='What the program does',
+                        epilog='Text at the bottom of help')
+    parser.add_argument('--host')      # option that takes a value
+    args, leftovers = parser.parse_known_args()
+
+    if args.host is not None:
+        app.run(host=str(args.host), port=8000)
     app.run(port=8000)
