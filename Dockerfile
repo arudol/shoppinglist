@@ -3,12 +3,12 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
-COPY shoppinglist/requirements.txt ./
+COPY app/requirements.txt ./
 
 RUN uv pip install -r requirements.txt --system
 
 
-COPY shoppinglist/ /app/
+COPY app/ /app/
 
 RUN ls -l /app
 
