@@ -90,7 +90,6 @@ if __name__ == "__main__":
                         epilog='Text at the bottom of help')
     parser.add_argument('--host')      # option that takes a value
     args, leftovers = parser.parse_known_args()
-
     if args.host is not None:
         app.run(host=str(args.host), port=8000)
     app.run(port=8000)
