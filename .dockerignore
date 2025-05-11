@@ -1,2 +1,3 @@
-shoppinglist/pycache
-shoppinglist/.git
+app/pycache
+app/__pycache__
+app/.git

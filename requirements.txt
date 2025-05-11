@@ -1,3 +1,0 @@
-flask >=  3.0
-pymongo >= 4.0
-wtforms

@@ -1,9 +1,0 @@
-{% from "_formhelper.html" import render_field %}
-<form method=post>
-  Which item(s) should be removed from the list?
-  <dl>
-    {{ render_field(form.item) }}
-    {{ render_field(form.shop) }}
-  </dl>
-  <p><input type=submit value=Delete>
-</form>
